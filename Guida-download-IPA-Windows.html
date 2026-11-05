@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitPulse — Scaricare l'IPA su Windows</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; color: #172033; background: #f3f6fb; }
+    body { margin: 0; padding: 26px 16px 48px; }
+    main { max-width: 760px; margin: auto; }
+    header, section { background: white; border: 1px solid #e1e7f0; border-radius: 18px; padding: 22px; margin-bottom: 16px; }
+    header { color: white; background: linear-gradient(135deg, #123f93, #087f75); border: 0; }
+    h1 { margin: 0 0 8px; font-size: 27px; }
+    h2 { margin: 0 0 12px; font-size: 19px; }
+    p, li { font-size: 15px; line-height: 1.6; }
+    ol, ul { padding-left: 22px; margin-bottom: 0; }
+    li { padding: 0 0 8px 4px; }
+    .note { background: #fff7df; border-left: 4px solid #e8a400; padding: 12px 14px; border-radius: 8px; }
+    .tip { background: #eaf5ff; border-left: 4px solid #3182ce; padding: 12px 14px; border-radius: 8px; }
+    code { background: #eef1f6; padding: 2px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    a { color: #1558a6; }
+    .download { display: inline-block; color: white; background: #1256b0; text-decoration: none; padding: 11px 15px; border-radius: 10px; font-weight: bold; margin-top: 6px; }
+    footer { color: #536078; font-size: 13px; padding: 4px 2px; }
+    @media print { body { background: white; padding: 0; } header, section { break-inside: avoid; } .download { display: none; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Come scaricare l’IPA di FitPulse su Windows</h1>
+    <p>GitHub Actions crea il file IPA online. Segui questi passaggi dal PC Windows: non serve un Mac.</p>
+    <a class="download" href="FitPulse-iOS-aggiornato.zip" download>Scarica il progetto FitPulse</a>
+  </header>
+
+  <section>
+    <h2>Se hai già il repository FitPulse</h2>
+    <ol>
+      <li>Estrai la versione aggiornata di <code>FitPulse-iOS-aggiornato.zip</code>.</li>
+      <li>Apri la cartella locale del tuo repository con GitHub Desktop e copia dentro <strong>tutto il contenuto aggiornato</strong> della cartella estratta, inclusi <code>FitPulse</code>, <code>AppAssets.xcassets</code> e <code>.github</code>. Accetta la sostituzione dei file.</li>
+      <li>In GitHub Desktop scrivi un riepilogo, premi <strong>Commit to main</strong> e poi <strong>Push origin</strong>. Il push fa partire la nuova compilazione.</li>
+      <li>Segui le istruzioni nella sezione “Scaricare il file IPA sul PC” più sotto. La nuova app include le modifiche e l’icona aggiornata.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Prima di iniziare</h2>
+    <ul>
+      <li>Ti servono un account GitHub e il progetto FitPulse.</li>
+      <li>Se non hai ancora caricato il progetto su GitHub, scarica lo ZIP qui sopra e segui la sezione “Caricare il progetto” più sotto.</li>
+      <li>Se il progetto è già su GitHub, vai direttamente a “Avviare la compilazione”.</li>
+    </ul>
+    <p class="note"><strong>Attenzione:</strong> lo ZIP del progetto non è l’IPA. Non cambiare il nome o l’estensione. L’IPA apparirà come artifact solo dopo una compilazione completata con successo.</p>
+  </section>
+
+  <section>
+    <h2>1. Caricare il progetto su GitHub (solo la prima volta)</h2>
+    <ol>
+      <li>Scarica <code>FitPulse-iOS-aggiornato.zip</code> e fai clic destro sul file → <strong>Estrai tutto</strong>.</li>
+      <li>Su <a href="https://github.com/">GitHub.com</a>, accedi e crea un repository, ad esempio <code>FitPulse-iOS</code>. Seleziona <strong>Private</strong>.</li>
+      <li>Installa e apri GitHub Desktop. Accedi con GitHub e scegli <strong>File → Clone repository</strong>. Seleziona il repository appena creato.</li>
+      <li>Apri la cartella locale del repository. Copia al suo interno <strong>tutti i file e le cartelle</strong> estratti dallo ZIP, non solo la cartella esterna.</li>
+      <li>Assicurati che nella cartella del repository esistano <code>.github\workflows\build-ios-ipa.yml</code> e <code>FitPulse.xcodeproj</code>. Se non vedi <code>.github</code>, in Esplora file attiva <strong>Visualizza → Mostra → Elementi nascosti</strong>.</li>
+      <li>In GitHub Desktop inserisci un riepilogo, per esempio <code>Add FitPulse iOS project</code>, premi <strong>Commit to main</strong> e poi <strong>Push origin</strong>.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>2. Avviare la compilazione dell’IPA</h2>
+    <ol>
+      <li>Apri il repository su GitHub.com e fai clic sulla scheda <strong>Actions</strong>.</li>
+      <li>Se GitHub mostra un avviso per abilitare Actions o i workflow, premi il pulsante di conferma.</li>
+      <li>Nella colonna a sinistra seleziona <strong>Build FitPulse IPA</strong>.</li>
+      <li>Premi <strong>Run workflow</strong>, lascia selezionato il branch <code>main</code> e conferma con il pulsante verde <strong>Run workflow</strong>.</li>
+      <li>La nuova esecuzione comparirà nell’elenco. Fai clic sulla riga più recente per aprirla.</li>
+      <li>Attendi il completamento: deve apparire il segno verde di successo. Se vedi una X rossa, la compilazione non è riuscita e l’IPA non è disponibile.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>3. Scaricare il file IPA sul PC</h2>
+    <ol>
+      <li>Nella pagina dell’esecuzione completata, scorri verso il basso fino alla sezione <strong>Artifacts</strong>.</li>
+      <li>Fai clic su <code>FitPulse-unsigned-ipa</code>. Il browser scaricherà un archivio ZIP.</li>
+      <li>Apri la cartella <strong>Download</strong> di Windows. Fai clic destro sullo ZIP scaricato → <strong>Estrai tutto</strong>.</li>
+      <li>Apri la cartella estratta. Il file che ti serve si chiama <code>FitPulse-unsigned.ipa</code>. Ora si trova sul tuo PC.</li>
+    </ol>
+    <p class="tip">Se non trovi “Artifacts”, controlla che la run sia terminata con successo e che la pagina sia quella della run, non solo la lista delle esecuzioni.</p>
+  </section>
+
+  <section>
+    <h2>Attivare il Coach IA e lo scanner del piatto</h2>
+    <ol>
+      <li>Apri <a href="https://aistudio.google.com/apikey">Google AI Studio</a> e crea una tua chiave API Gemini.</li>
+      <li>Apri FitPulse su iPhone e premi <strong>Coach IA</strong> oppure <strong>Scan AI</strong>, poi scegli <strong>Configura la chiave IA</strong>.</li>
+      <li>Incolla la chiave e salvala sul dispositivo. Non inserirla nel repository GitHub e non condividerla con altre persone.</li>
+      <li>Per lo scanner, scatta o carica una foto JPG, PNG o WebP e premi <strong>Analizza con IA</strong>. Se una foto HEIC non si apre, convertila in JPG o usa “Più compatibile” nelle impostazioni della fotocamera iPhone.</li>
+    </ol>
+    <p class="note">La chiave è salvata solo sul dispositivo, ma domande, obiettivi FitPulse e foto vengono inviati a Google Gemini. Controlla limiti, condizioni ed eventuali costi del tuo account AI Studio. Le risposte e le stime del piatto sono indicative e non sostituiscono un professionista sanitario.</p>
+  </section>
+
+  <section>
+    <h2>Se “Build FitPulse IPA” non compare</h2>
+    <ol>
+      <li>Controlla su GitHub che il file sia esattamente in <code>.github/workflows/build-ios-ipa.yml</code> nella radice del repository.</li>
+      <li>Verifica di aver caricato e inviato i file con <strong>Push origin</strong>.</li>
+      <li>Torna ad <strong>Actions</strong> e aggiorna la pagina. Se GitHub chiede di abilitare i workflow, conferma.</li>
+      <li>In alternativa, un nuovo push sul branch <code>main</code> avvia automaticamente la compilazione.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Se la build dice “configuration ... is not supported”</h2>
+    <ol>
+      <li>Nel repository GitHub apri <code>.github/workflows/build-ios-ipa.yml</code>.</li>
+      <li>Premi la matita per modificare e trova la riga <code>runs-on: macos-14</code>.</li>
+      <li>Sostituiscila con <code>runs-on: macos-15</code>, poi premi <strong>Commit changes</strong>.</li>
+      <li>Apri <strong>Actions</strong>: il commit avvia una nuova compilazione. Apri la run più recente e attendi il segno verde prima di scaricare l'artifact.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Dopo il download</h2>
+    <p>L’IPA scaricato non è ancora firmato per il tuo iPhone. Per installarlo, apri Sideloadly su Windows, collega l’iPhone, seleziona il file <code>FitPulse-unsigned.ipa</code> e premi <strong>Start</strong>. Scarica Sideloadly solo dal <a href="https://sideloadly.io/">sito ufficiale</a>.</p>
+    <p>Con un Apple ID gratuito, la firma in genere scade dopo circa 7 giorni e l’installazione va rinnovata. Non condividere password o codici di verifica Apple.</p>
+  </section>
+  <footer>Puoi salvare o stampare questa pagina come PDF dal menu di stampa del browser.</footer>
+</main>
+</body>
+</html>
